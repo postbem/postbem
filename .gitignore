@@ -1,0 +1,12 @@
+# OS
+.DS_Store
+._*
+
+# NodeJS
+npm-debug.log
+
+.nyc_output
+
+coverage
+api
+node_modules
