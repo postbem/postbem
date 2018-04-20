@@ -1,0 +1,21 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": [
+    "standard"
+  ],
+  "plugins": [
+    "import",
+    "node",
+    "promise",
+    "standard"
+  ],
+  "rules": {
+    "jsx-quotes": ["error", "prefer-double"],
+    "semi": ["error", "always"]
+  }
+}
