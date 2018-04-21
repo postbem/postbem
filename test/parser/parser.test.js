@@ -22,8 +22,8 @@ describe('parser', () => {
   it('should work', () => {
     const parser = new Parser(bemjson);
     const tree = parser.parse();
-    const result1 = tree.content[0].content[0].block;
-    const result2 = tree.content[0].content[1].content;
+    const result1 = tree.content[0].content[0].content[0].block;
+    const result2 = tree.content[0].content[0].content[1].content;
 
     expect(result1).to.be.equal('App');
     expect(result2).to.be.equal('It\'s work!');
