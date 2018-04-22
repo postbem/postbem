@@ -22,23 +22,23 @@ describe('parser', () => {
   };
 
   it('should work', () => {
-    const tree = parser(bemtree);
-    const result1 = tree.content[0].content[0].block;
-    const result2 = tree.content[0].content[0].content[1].content;
+    const bemTree = parser(bemtree);
+    const result1 = bemTree.content[0].content[0].block;
+    const result2 = bemTree.content[0].content[0].content[1].content;
 
     expect(result1).to.be.equal('App');
     expect(result2).to.be.equal('It\'s work!');
   });
 
   it('should normalize nodes', () => {
-    const tree = parser(bemtree);
+    const bemTree = parser(bemtree);
     let result1;
     let result2;
 
-    tree.match({ block: 'App', elem: 'Header' }, (node) => {
+    bemTree.match({ elem: 'Header' }, (node) => {
       result1 = node.block;
     });
-    tree.match({ tag: 'br' }, (node) => {
+    bemTree.match({ tag: 'br' }, (node) => {
       result2 = node.single;
     });
 
@@ -47,11 +47,11 @@ describe('parser', () => {
   });
 
   it('should simple match tree', () => {
-    const tree = parser(bemtree);
+    const bemTree = parser(bemtree);
     let result1;
     let result2;
 
-    tree.match({ block: 'App', elem: 'Header' }, (node) => {
+    bemTree.match({ block: 'App', elem: 'Header' }, (node) => {
       result1 = node.block;
       result2 = node.content;
     });
