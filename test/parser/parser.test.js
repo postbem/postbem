@@ -1,7 +1,7 @@
 const { describe, it } = require('mocha');
 const { expect } = require('chai');
 
-const Parser = require('../../lib/parser');
+const parser = require('../../lib/parser');
 
 describe('parser', () => {
   const bemjson = {
@@ -22,8 +22,7 @@ describe('parser', () => {
   };
 
   it('should work', () => {
-    const parser = new Parser(bemjson);
-    const tree = parser.parse();
+    const tree = parser(bemjson);
     const result1 = tree.content[0].content[0].block;
     const result2 = tree.content[0].content[0].content[1].content;
 
@@ -32,8 +31,7 @@ describe('parser', () => {
   });
 
   it('should normalize nodes', () => {
-    const parser = new Parser(bemjson);
-    const tree = parser.parse();
+    const tree = parser(bemjson);
     let result1;
     let result2;
 
@@ -49,8 +47,7 @@ describe('parser', () => {
   });
 
   it('should simple match tree', () => {
-    const parser = new Parser(bemjson);
-    const tree = parser.parse();
+    const tree = parser(bemjson);
     let result1;
     let result2;
 
