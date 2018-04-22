@@ -4,7 +4,7 @@ const { expect } = require('chai');
 const parser = require('../../lib/parser');
 
 describe('parser', () => {
-  const bemjson = {
+  const bemtree = {
     block: 'Page',
     content: [
       {
@@ -22,7 +22,7 @@ describe('parser', () => {
   };
 
   it('should work', () => {
-    const tree = parser(bemjson);
+    const tree = parser(bemtree);
     const result1 = tree.content[0].content[0].block;
     const result2 = tree.content[0].content[0].content[1].content;
 
@@ -31,7 +31,7 @@ describe('parser', () => {
   });
 
   it('should normalize nodes', () => {
-    const tree = parser(bemjson);
+    const tree = parser(bemtree);
     let result1;
     let result2;
 
@@ -47,7 +47,7 @@ describe('parser', () => {
   });
 
   it('should simple match tree', () => {
-    const tree = parser(bemjson);
+    const tree = parser(bemtree);
     let result1;
     let result2;
 
