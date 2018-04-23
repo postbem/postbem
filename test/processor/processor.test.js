@@ -1,10 +1,10 @@
 const { describe, it } = require('mocha');
 const { expect } = require('chai');
 
-const postbem = require('../lib');
-const plugin = require('./utils/plugin');
+const Processor = require('../../lib/processor/Processor');
+const plugin = require('../utils/plugin');
 
-describe('postbem', () => {
+describe('processor', () => {
   const bemtree = {
     block: 'Page',
     content: [
@@ -20,7 +20,7 @@ describe('postbem', () => {
   };
 
   it('should work', () => {
-    const processor = postbem([plugin]);
+    const processor = new Processor([plugin]);
     const expected1 = bemtree.content[0].content[0].content.toUpperCase();
     const expected2 = bemtree.content[0].content[1].content.toUpperCase();
 
