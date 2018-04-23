@@ -19,7 +19,7 @@
   },
   "main": "lib",
   "files": [
-    "dist",
+    "umd",
     "lib"
   ],
   "scripts": {
